@@ -68,3 +68,94 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+
+def add_numbers(a, b):
+    return a + b
+
+
+def subtract_numbers(a, b):
+    return a - b
+
+
+def multiply_numbers(a, b):
+    return a * b
+
+
+def divide_numbers(a, b):
+    return a / b
+
+
+def modulus_numbers(a, b):
+    return a % b
+
+
+def power_numbers(base, exponent):
+    return base ** exponent
+
+
+def format_number(n):
+    if float(n).is_integer():
+        return str(int(n))
+    return f"{n:.2f}"
+
+
+def print_menu():
+    print("\n============================")
+    print("     SIMPLE CALCULATOR")
+    print("============================")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Modulus")
+    print("6. Exponentiation")
+    print("7. Quit")
+
+
+def main():
+    running = True
+
+    while running:
+        print_menu()
+        choice = input("Select an operation (1-7): ")
+
+        if choice == "7":
+            print("Goodbye!")
+            running = False
+            continue
+
+        if choice not in ("1", "2", "3", "4", "5", "6"):
+            print("Error: Invalid choice. Please select 1-7.")
+            continue
+
+        a = float(input("Enter first number : "))
+        b = float(input("Enter second number: "))
+
+        if choice == "1":
+            result = add_numbers(a, b)
+            print(f"Result: {format_number(a)} + {format_number(b)} = {format_number(result)}")
+        elif choice == "2":
+            result = subtract_numbers(a, b)
+            print(f"Result: {format_number(a)} - {format_number(b)} = {format_number(result)}")
+        elif choice == "3":
+            result = multiply_numbers(a, b)
+            print(f"Result: {format_number(a)} * {format_number(b)} = {format_number(result)}")
+        elif choice == "4":
+            if b == 0:
+                print("Error: Cannot divide by zero.")
+            else:
+                result = divide_numbers(a, b)
+                print(f"Result: {format_number(a)} / {format_number(b)} = {result:.2f}")
+        elif choice == "5":
+            if b == 0:
+                print("Error: Cannot divide by zero.")
+            else:
+                result = modulus_numbers(a, b)
+                print(f"Result: {format_number(a)} % {format_number(b)} = {format_number(result)}")
+        elif choice == "6":
+            result = power_numbers(a, b)
+            print(f"Result: {format_number(a)} ** {format_number(b)} = {format_number(result)}")
+
+
+if __name__ == "__main__":
+    main()
